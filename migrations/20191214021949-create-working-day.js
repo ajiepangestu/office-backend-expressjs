@@ -18,6 +18,11 @@ module.exports = {
       isWorking: {
         type: Sequelize.BOOLEAN
       },
+      deleted: {
+        allowNull: false,
+        defaultValue: 0,
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: 'TIMESTAMP',

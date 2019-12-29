@@ -25,6 +25,11 @@ module.exports = {
           key: 'id'
         }
       },
+      deleted: {
+        allowNull: false,
+        defaultValue: 0,
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: 'TIMESTAMP',
