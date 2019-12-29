@@ -1,10 +1,13 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-  const UsersWorkingDay = sequelize.define('UsersWorkingDay', {
+  const UserWorkingDay = sequelize.define('UserWorkingDay', {
     userId: DataTypes.INTEGER,
     workingDayId: DataTypes.INTEGER
   }, {})
-  UsersWorkingDay.associate = (models) => {}
-  return UsersWorkingDay
+  UserWorkingDay.associate = (models) => {
+    UserWorkingDay.belongsTo(models.User, {foreignKey: 'userId'})
+    UserWorkingDay.belongsTo(models.WorkingDay, {foreignKey: 'workingDayId'})
+  }
+  return UserWorkingDay
 };

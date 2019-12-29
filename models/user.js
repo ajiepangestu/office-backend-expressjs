@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     companyId: DataTypes.INTEGER
   }, {})
-  User.associate = (models) => {}
+  User.associate = (models) => {
+    User.belongsTo(models.Company, {foreignKey: 'companyId'})
+    User.belongsToMany(models.WorkingDay, {through: 'UserWorkingDay', foreignKey: 'userId'})
+  }
   return User
 }

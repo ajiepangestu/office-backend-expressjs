@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     workingDate: DataTypes.DATE,
     isWorking: DataTypes.BOOLEAN
   }, {})
-  WorkingDay.associate = (models) => {}
+  WorkingDay.associate = (models) => {
+    WorkingDay.belongsToMany(models.Working, {through: 'UserWorkingDay', foreignKey: 'workingDayId'})
+  }
   return WorkingDay
 }
