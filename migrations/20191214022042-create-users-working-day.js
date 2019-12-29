@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('UsersWorkingDays', {
+    return queryInterface.createTable('UserWorkingDays', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -27,15 +27,17 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.NOW
       }
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('UsersWorkingDays')
+    return queryInterface.dropTable('UserWorkingDays')
   }
 }
