@@ -3,7 +3,8 @@
 module.exports = (sequelize, DataTypes) => {
   const UserWorkingDay = sequelize.define('UserWorkingDay', {
     userId: DataTypes.INTEGER,
-    workingDayId: DataTypes.INTEGER
+    workingDayId: DataTypes.INTEGER,
+    deleted: DataTypes.INTEGER
   }, {})
   UserWorkingDay.associate = (models) => {
     UserWorkingDay.belongsTo(models.User, {foreignKey: 'userId'})

@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     password: DataTypes.STRING,
-    companyId: DataTypes.INTEGER
+    companyId: DataTypes.INTEGER,
+    deleted: DataTypes.INTEGER
   }, {})
   User.associate = (models) => {
     User.belongsTo(models.Company, {foreignKey: 'companyId'})
